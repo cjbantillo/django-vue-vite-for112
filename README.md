@@ -53,7 +53,7 @@ Backend Setup
 ```
 cd backend
 python -m venv venv
-source venv/bin/activate  # Linux/WSL
+source venv/bin/activate  # Linux/WSL: or `venv\Scripts\activate` on Windows
 # OR venv\Scripts\activate  # Windows
 pip install -r requirements.txt
 python manage.py migrate
@@ -73,23 +73,31 @@ docker-compose up --build
 ```
 
 Dependencies
-Backend (Python)
-Django==4.2.17
+```
+## Backend (Python)
+From pip list and requirements.txt:
 
+Django==4.2.17 (installed, though requirements.txt lists 5.1.7)
 djangorestframework==3.15.2
-
 djangorestframework-simplejwt==5.3.1
+django-cors-headers==4.6.0
+PyJWT==2.10.1
+sqlparse==0.5.2
+Full list: See backend/requirements.txt or run pip list
+Note: Your installed Django (4.2.17) differs from requirements.txt (5.1.7) and WSL check (5.1.7). Update your environment or requirements.txt for consistency.
 
-Full list in backend/requirements.txt
+## Frontend (Node.js)
+From npm list and package.json:
 
-Frontend (Node.js)
 vue@3.5.13
-
 vuetify@3.7.19
-
 vite@6.2.4
-
-Full list in frontend/package.json
+@vitejs/plugin-vue@5.2.3
+vue-router@4.5.0
+axios@1.8.4
+@mdi/font@7.4.47
+Full list: See frontend/package.json
+```
 
 Project Structure
 ```
