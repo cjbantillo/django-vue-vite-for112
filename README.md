@@ -108,12 +108,9 @@ django-vue-app/
 
 Troubleshooting
 
-Issue	           |        Solution
-                 |
-Network Errors	 |        Ensure backend is running on port 8000
-Docker Issues	   |        Check port conflicts (80, 8000)
-Authentication   |      	Clear browser localStorage if login fails
-WSL Specific	   |        Use localhost instead of 127.0.0.1
-
-
-
+| Issue                   | Solution                                  |
+|-------------------------|-------------------------------------------|
+| **Network Errors**      | Ensure backend is running on port 8000    |
+| **Docker Issues**       |  Check port conflicts (80, 8000)          |
+| **Authentication**      | Clear browser localStorage if login fails |
+| **WSL Specific**        | Use localhost instead of 127.0.0.1        |
