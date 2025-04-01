@@ -93,17 +93,63 @@ Full list in frontend/package.json
 
 Project Structure
 ```
-django-vue-app/
-├── backend/            # Django project
-│   ├── core/          # Main app
-│   ├── manage.py
-│   └── requirements.txt
-├── frontend/          # Vue.js project
-│   ├── public/
-│   ├── src/
-│   └── vite.config.js
-├── docker-compose.yml
-└── README.md
+django_vue_app/
+│
+├── backend/                        # Django backend directory
+│   ├── accounts/                   # Django app for user authentication
+│   │   ├── __init__.py
+│   │   ├── admin.py
+│   │   ├── apps.py
+│   │   ├── migrations/             # Database migrations
+│   │   │   ├── __init__.py
+│   │   │   └── 0001_initial.py     # Initial migration (example)
+│   │   ├── models.py               # Django models (e.g., User)
+│   │   ├── serializers.py          # DRF serializers for API
+│   │   ├── tests.py
+│   │   ├── urls.py                 # App-specific URLs
+│   │   └── views.py                # API views (e.g., register, login)
+│   ├── backend/                    # Django project settings
+│   │   ├── __init__.py
+│   │   ├── asgi.py
+│   │   ├── settings.py             # Django settings (CORS, JWT, etc.)
+│   │   ├── urls.py                 # Main URL configuration
+│   │   └── wsgi.py
+│   ├── manage.py                   # Django management script
+│   ├── .env                        # Environment variables (e.g., SECRET_KEY)
+│   ├── requirements.txt            # Python dependencies
+│   ├── Dockerfile                  # Dockerfile for backend
+│   └── backend-dependencies.txt    # Optional: List of backend dependencies (if created)
+│
+├── frontend/                       # Vue.js frontend directory
+│   ├── dist/                       # Built frontend assets (excluded by .gitignore)
+│   ├── node_modules/               # Node.js dependencies (excluded by .gitignore)
+│   ├── public/                     # Public assets
+│   │   ├── index.html              # Main HTML template
+│   │   └── vite.svg                # Vite logo (default)
+│   ├── src/                        # Vue.js source code
+│   │   ├── assets/                 # Static assets (e.g., images, CSS)
+│   │   │   └── main.css            # Main stylesheet
+│   │   ├── components/             # Vue components
+│   │   │   └── HelloWorld.vue      # Example component (if present)
+│   │   ├── views/                  # Vue views (pages)
+│   │   │   ├── Dashboard.vue       # Dashboard page
+│   │   │   ├── Login.vue           # Login page
+│   │   │   └── Register.vue        # Register page
+│   │   ├── App.vue                 # Main Vue app component
+│   │   ├── main.js                 # Entry point for Vue app
+│   │   └── router.js               # Vue Router configuration
+│   ├── .gitignore                  # Git ignore for frontend (if separate)
+│   ├── index.html                  # Main HTML file (used by Vite)
+│   ├── package.json                # Node.js dependencies and scripts
+│   ├── package-lock.json           # Locked versions of Node.js dependencies
+│   ├── vite.config.js              # Vite configuration
+│   ├── Dockerfile                  # Dockerfile for frontend
+│   ├── nginx.conf                  # Nginx configuration for frontend
+│   └── frontend-dependencies.txt   # Optional: List of frontend dependencies (if created)
+│
+├── .gitignore                      # Git ignore file for the project
+├── docker-compose.yml              # Docker Compose configuration
+└── README.md                       # Project documentation
 ```
 
 Troubleshooting
