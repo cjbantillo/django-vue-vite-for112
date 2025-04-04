@@ -77,31 +77,30 @@
   </div>
 </template>
 
-<script>
-import axios from "axios";
+<script setup>
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import axios from 'axios';
 
-export default {
-  data() {
-    return {
-      username: "",
-      password: "",
-      visible: false,
-    };
-  },
-  methods: {
-    async login() {
-      try {
-        const response = await axios.post("/api/login/", {
-          username: this.username,
-          password: this.password,
-        });
-        localStorage.setItem("access_token", response.data.access);
-        this.$router.push("/dashboard");
-      } catch (error) {
-        console.error("Login failed:", error);
-        alert("Invalid credentials");
-      }
-    },
-  },
+// Reactive variables
+const username = ref('');
+const password = ref('');
+const visible = ref(false);
+const router = useRouter();
+
+// Login function
+const login = async () => {
+  try {
+    const response = await axios.post('http://localhost:8000/api/login/', {
+      username: username.value,
+      password: password.value,
+    });
+    localStorage.setItem('access_token', response.data.access);
+    localStorage.setItem('refresh_token', response.data.refresh); // Store refresh token too
+    router.push('/dashboard');
+  } catch (error) {
+    console.error('Login failed:', error);
+    alert('Invalid credentials');
+  }
 };
 </script>
